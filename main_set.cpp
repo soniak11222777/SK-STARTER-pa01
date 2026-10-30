@@ -7,8 +7,38 @@
 #include "card.h"
 
 using namespace std;
+set<Card> Alice;
+set<Card> Bob;
+
+void AliceTurn(){
+for (const Card& eachA : Alice){
+auto it = Bob.find(eachA);
+  if (it != Bob.end()){
+      cout << "Alice picked matching card " << eachA;
+      Alice.erase(eachA);
+      Bob.erase(it);
+      return;
+  }
+}
+//return false;
+}
+    
+void BobTurn(){
+for (set<Card>::const_reverse_iterator rit = Bob.rbegin(); rit != Bob.rend(); ++rit){
+auto it = Alice.find(*rit);
+  if (it != Alice.end()){
+      cout << "Bob picked matching card " << *rit;
+    Bob.erase(*rit);
+    Alice.erase(it);
+    return;
+  }
+  }
+  //return false;
+}     
+
 
 int main(int argv, char** argc){
+
   if(argv < 3){
     cout << "Please provide 2 file names" << endl;
     return 1;
@@ -25,16 +55,44 @@ int main(int argv, char** argc){
 
   //Read each file
   while (getline (cardFile1, line) && (line.length() > 0)){
-
+    char o = line[0];
+    string val = line.substr(2);
+    Alice.insert(Card(o,val));
   }
   cardFile1.close();
 
 
   while (getline (cardFile2, line) && (line.length() > 0)){
-
+    char o = line[0];
+    string val = line.substr(2);
+    Bob.insert(Card(o,val));
   }
   cardFile2.close();
-  
-  
+
+ /* cout<< "Alice's set size: " << Alice.size() << endl;
+  cout<< "Alice's cards: " << endl;
+for (Card each: Alice){
+cout<< each << " "<< endl; 
+}*/
+
+   
+
+for (int i = 0; i < Alice.size(); i++) {
+AliceTurn();
+BobTurn();
+} 
+
+
+cout<< "Alice's cards: "<< endl;
+
+for (Card each: Alice){
+cout<< each; 
+}
+
+cout<< "Bobs's cards: "<< endl;
+for (Card each: Bob){
+cout<< each; 
+}
+
   return 0;
 }

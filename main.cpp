@@ -7,7 +7,6 @@
 //Do not include set in this file
 
 using namespace std;
-
 int main(int argv, char** argc){
   if(argv < 3){
     cout << "Please provide 2 file names" << endl;
