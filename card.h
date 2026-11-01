@@ -20,6 +20,7 @@ Card(char s = '\0', string v  = " ");
 bool operator==(const Card& f) const; 
 bool operator!=(const Card& f) const; 
 bool operator<(const Card& f) const;
+bool operator>(const Card& f) const;
 
 
 private: 

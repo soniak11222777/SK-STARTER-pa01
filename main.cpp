@@ -7,6 +7,8 @@
 //Do not include set in this file
 
 using namespace std;
+
+
 int main(int argv, char** argc){
   if(argv < 3){
     cout << "Please provide 2 file names" << endl;
@@ -23,16 +25,37 @@ int main(int argv, char** argc){
   }
 
   //Read each file
-  while (getline (cardFile1, line) && (line.length() > 0)){
+CardBST Alice;
+CardBST Bob; 
 
+  while (getline (cardFile1, line) && (line.length() > 0)){
+    char o = line[0];
+    string val = line.substr(2);
+    Alice.insert(Card(o,val));
   }
   cardFile1.close();
 
 
   while (getline (cardFile2, line) && (line.length() > 0)){
-
+    char o = line[0];
+    string val = line.substr(2);
+    Bob.insert(Card(o,val));
   }
   cardFile2.close();
+
+
+playGame(Alice, Bob);
+
+cout<< "Alice's cards: "<< endl;
+for (auto it = Alice.begin(); it != Alice.end(); ++it) {
+    cout << *it; 
+}
+
+cout<< "Bob's cards: "<< endl;
+for (auto it = Bob.begin(); it != Bob.end(); ++it) {
+    cout << *it;
+}
+
   
   
   return 0;

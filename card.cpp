@@ -34,8 +34,8 @@ case 'h': return 4;
 case 's': return 3;
 case 'd': return 2;
 case 'c': return 1;
+default : return 0;
 }
-return 0;
 }
 
 int Card::valuehelper(string v) const{
@@ -63,22 +63,27 @@ bool Card::operator<(const Card& f) const{
     int v = valuehelper(value);
     int vf = valuehelper(f.value);
 
-    if (s < sf){
-    return true;
+    if (s != sf){
+    return s<sf;
     }
-
-    if (s == sf){
-         if (v < vf){
-        return true;
-    }
-    return false;
+    return v<vf;
 }
 
-return false;
+bool Card::operator>(const Card& f) const{
+    int s = suithelper(suit);
+    int sf = suithelper(f.suit);
+    int v = valuehelper(value);
+    int vf = valuehelper(f.value);
+
+    if (s != sf){
+    return s>sf;
+    }
+
+return v>vf;
 }
 
 ostream& operator<<(ostream &out, const Card& c){
-out << c.suit << " " << c.value << endl;
+    out << c.suit << " " << c.value << endl;
 return out;
 }
 

@@ -69,13 +69,7 @@ int main(int argv, char** argc){
   }
   cardFile2.close();
 
- /* cout<< "Alice's set size: " << Alice.size() << endl;
-  cout<< "Alice's cards: " << endl;
-for (Card each: Alice){
-cout<< each << " "<< endl; 
-}*/
 
-   
 
 for (int i = 0; i < Alice.size(); i++) {
 AliceTurn();
