@@ -76,13 +76,13 @@ AliceTurn();
 BobTurn();
 } 
 
-
+cout<< endl; 
 cout<< "Alice's cards: "<< endl;
 
 for (Card each: Alice){
 cout<< each; 
 }
-
+cout<< endl; 
 cout<< "Bob's cards: "<< endl;
 for (Card each: Bob){
 cout<< each; 

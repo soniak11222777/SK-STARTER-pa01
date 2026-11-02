@@ -45,12 +45,12 @@ CardBST Bob;
 
 
 playGame(Alice, Bob);
-
+cout<< endl; 
 cout<< "Alice's cards: "<< endl;
 for (auto it = Alice.begin(); it != Alice.end(); ++it) {
     cout << *it; 
 }
-
+cout<< endl; 
 cout<< "Bob's cards: "<< endl;
 for (auto it = Bob.begin(); it != Bob.end(); ++it) {
     cout << *it;
