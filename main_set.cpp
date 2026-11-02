@@ -83,7 +83,7 @@ for (Card each: Alice){
 cout<< each; 
 }
 
-cout<< "Bobs's cards: "<< endl;
+cout<< "Bob's cards: "<< endl;
 for (Card each: Bob){
 cout<< each; 
 }
