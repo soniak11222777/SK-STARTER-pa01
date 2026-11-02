@@ -88,7 +88,7 @@ bool CardBST::contains(const Card& c) const {
 }
 
 CardBST::Node* CardBST::getPredecessorNode(Node* r, const Card& c) const {
-    /*Node* s = getNodeFor(c, r);
+   /* Node* s = getNodeFor(c, r);
     if (s==nullptr){
     return nullptr;
     }
@@ -103,7 +103,7 @@ CardBST::Node* CardBST::getPredecessorNode(Node* r, const Card& c) const {
     Node* p = s->parent;
     Node* pred = s;
     
-    while ( p != nullptr && pred == pred->left){
+    while ( p != nullptr && pred == p->left){
     pred = p;
     p = p->parent; 
     }
@@ -141,9 +141,6 @@ Card CardBST::getPredecessor(const Card& c) const{
 }
 
 CardBST::Node* CardBST::getSuccessorNode(Node* r, const Card& c) const{
-    /*if(contains(c) != true){
-    return nullptr;
-    }*/
   /*Node* s = getNodeFor(c, r);
   if (s==nullptr){
     return nullptr;
@@ -207,7 +204,7 @@ Node* par = target->parent;
 Node* r = target->right;
 Node* l = target->left;
 
-if (contains(c)){
+
   if (l == nullptr && r == nullptr){
     if (target == root){
         root = nullptr;
@@ -250,16 +247,30 @@ if (contains(c)){
                                 Node* pred = getPredecessorNode(root, c);
                                 if (succ!=nullptr){
                                Card sVal = succ->card;
-                               target->card = sVal;
                                 remove(sVal);
+                                target->card = sVal;
                                 } else {
                                 Card pVal = pred->card;
-                                target->card = pVal;
                                 remove(pVal);
+                                target->card = pVal;
                                 }
+                               /*Card sVal = succ->card;
+                                target->card = sVal;
+                               Node* succPar = succ->parent;
+                                Node* succRight = succ->right;
+                                if (succPar->left == succ) {
+                                    succPar->left = succRight;
+                                } else {
+                                    succPar->right = succRight;
+                                }
+
+                                if (succRight != nullptr) {
+                                    succRight->parent = succPar;
+                                }
+                                delete succ;*/
                             }
                                 del = true;
-                                }
+            
                                 return del;
 }
 
@@ -296,6 +307,9 @@ CardBST::BSTiterator CardBST::end(){
 }
 
 CardBST::BSTiterator CardBST::rbegin(){
+    if (root == nullptr){
+    return BSTiterator(this, nullptr);
+    } 
     Node* temp = root;
     while(temp != nullptr && temp->right != nullptr){
         temp = temp->right;

@@ -13,7 +13,7 @@ Card::Card(char s, string v) : suit(s) , value(v){}
 Card::~Card(){}
 
 bool Card::operator==(const Card& f) const{
-    if (suit == f.suit && value == f.value){
+    if(suit == f.suit && value == f.value){
         return true;
     }
     return false;
@@ -66,7 +66,7 @@ bool Card::operator<(const Card& f) const{
     if (s != sf){
     return s<sf;
     }
-    return v<vf;
+    return v < vf;
 }
 
 bool Card::operator>(const Card& f) const{
