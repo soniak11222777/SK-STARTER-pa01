@@ -88,26 +88,6 @@ bool CardBST::contains(const Card& c) const {
 }
 
 CardBST::Node* CardBST::getPredecessorNode(Node* r, const Card& c) const {
-   /* Node* s = getNodeFor(c, r);
-    if (s==nullptr){
-    return nullptr;
-    }
-    if(s->left != nullptr){
-        s = s->left;
-        while (s->right != nullptr){
-            s = s->right;
-            }
-            return s;
-            }
-
-    Node* p = s->parent;
-    Node* pred = s;
-    
-    while ( p != nullptr && pred == p->left){
-    pred = p;
-    p = p->parent; 
-    }
-    return p;*/
     Node* s = getNodeFor(c, r);
 if (s==nullptr){
 return nullptr;
@@ -141,24 +121,7 @@ Card CardBST::getPredecessor(const Card& c) const{
 }
 
 CardBST::Node* CardBST::getSuccessorNode(Node* r, const Card& c) const{
-  /*Node* s = getNodeFor(c, r);
-  if (s==nullptr){
-    return nullptr;
-}
-if(s->right != nullptr){
-    s = s->right;
-        while (s->left != nullptr){
-            s = s->left;
-        }
-        return s;
-        }
-  Node* p = s->parent;
-  Node* succ = s;
-while (p!= nullptr && succ == p->right){
-        succ = p;
-        p = p->parent;
-        }
-        return p;  */
+
  Node* s = getNodeFor(c, r);
  if (s==nullptr){
    return nullptr;
@@ -254,20 +217,6 @@ Node* l = target->left;
                                 remove(pVal);
                                 target->card = pVal;
                                 }
-                               /*Card sVal = succ->card;
-                                target->card = sVal;
-                               Node* succPar = succ->parent;
-                                Node* succRight = succ->right;
-                                if (succPar->left == succ) {
-                                    succPar->left = succRight;
-                                } else {
-                                    succPar->right = succRight;
-                                }
-
-                                if (succRight != nullptr) {
-                                    succRight->parent = succPar;
-                                }
-                                delete succ;*/
                             }
                                 del = true;
             
