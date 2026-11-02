@@ -24,7 +24,7 @@ auto it = Bob.find(eachA);
 }
     
 void BobTurn(){
-for (set<Card>::const_reverse_iterator rit = Bob.rbegin(); rit != Bob.rend(); --rit){
+for (set<Card>::const_reverse_iterator rit = Bob.rbegin(); rit != Bob.rend(); ++rit){
 auto it = Alice.find(*rit);
   if (it != Alice.end()){
       cout << "Bob picked matching card " << *rit;
