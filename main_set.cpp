@@ -71,10 +71,15 @@ int main(int argv, char** argc){
 
 
 
-for (int i = 0; i < Alice.size(); i++) {
+while(Alice.size()>0 && Bob.size()>0){ 
+int cA = Alice.size();
+int cB = Bob.size();
 AliceTurn();
 BobTurn();
-} 
+    if(Alice.size() == cA && Bob.size() == cB){
+        break;
+    }
+}
 
 cout<< endl; 
 cout<< "Alice's cards: "<< endl;
