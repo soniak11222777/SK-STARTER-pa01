@@ -16,7 +16,7 @@ auto it = Bob.find(eachA);
   if (it != Bob.end()){
       cout << "Alice picked matching card " << eachA;
       Alice.erase(eachA);
-      Bob.erase(*it);
+      Bob.erase(it);
       return;
   }
 }
@@ -29,7 +29,7 @@ auto it = Alice.find(*rit);
   if (it != Alice.end()){
       cout << "Bob picked matching card " << *rit;
     Bob.erase(*rit);
-    Alice.erase(*it);
+    Alice.erase(it);
     return;
   }
   }
