@@ -1,5 +1,5 @@
 // card.cpp
-// Author: Your name
+// Author: Sonia Kumar
 // Implementation of the classes defined in card.h
 
 #include "card.h"
@@ -78,8 +78,8 @@ bool Card::operator>(const Card& f) const{
     if (s != sf){
     return s>sf;
     }
-
-return v>vf;
+    
+    return v>vf;
 }
 
 ostream& operator<<(ostream &out, const Card& c){
@@ -87,12 +87,3 @@ ostream& operator<<(ostream &out, const Card& c){
 return out;
 }
 
-
-
-
-/*
-bool operator<<(ostream &out, const Card& c){
-out << c.suit " " << c.value << endl;
-return out;
-}
-*/

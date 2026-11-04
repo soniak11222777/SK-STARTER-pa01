@@ -25,9 +25,10 @@ bstO.insert(a);
 bstO.insert(b);
 bstO.insert(c);
 assert(bstO.remove(a) == true);
+assert(bstO.remove(b) == true);
 
 assert(bstO.contains(a) == false);
-assert(bstO.remove(d) != true);
+assert(bstO.remove(d) == false);
 
 cout << "BST functions tested" << endl;
 }
